@@ -1,0 +1,14 @@
+server {
+    listen 80 default_server;
+    server_name www.experiment.test;
+
+    root /var/www/html;
+    index index.html;
+
+    access_log /var/log/nginx/experiment_access.log;
+    error_log /var/log/nginx/experiment_error.log;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}

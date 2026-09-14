@@ -1,0 +1,24 @@
+acl lab_networks {
+    127.0.0.1;
+    10.10.0.0/16;
+};
+
+options {
+    directory "/var/cache/bind";
+
+    listen-on {
+        127.0.0.1;
+        10.10.20.10;
+    };
+
+    listen-on-v6 { none; };
+
+    allow-query { lab_networks; };
+    allow-recursion { none; };
+    allow-query-cache { none; };
+    recursion no;
+
+    minimal-responses yes;
+    dnssec-validation auto;
+
+};

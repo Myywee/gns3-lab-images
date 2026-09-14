@@ -1,0 +1,28 @@
+server {
+    listen 80 default_server;
+    server_name www.experiment.test;
+
+    root /var/www/html;
+    index index.html;
+
+    server_tokens off;
+
+    access_log /var/log/nginx/experiment_access.log;
+    error_log /var/log/nginx/experiment_error.log;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Protect internal resources.
+    location ^~ /secure/ {
+        deny all;
+    }
+
+    # Protect .git, .env, .htpasswd, and other hidden files.
+    location ~ /\. {
+        deny all;
+        access_log off;
+        log_not_found off;
+    }
+}
