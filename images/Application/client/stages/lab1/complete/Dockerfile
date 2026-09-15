@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG BASE_IMAGE=ghcr.io/myywee/ubuntu:slab
+ARG BASE_IMAGE=ghcr.io/myywee/ubuntu:basic
 FROM ${BASE_IMAGE}
 
 USER root
@@ -8,8 +8,6 @@ USER root
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -eux; \
-    apt-get update; \
-    apt-get install -y --no-install-recommends dnsmasq-base; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
@@ -29,4 +27,4 @@ HEALTHCHECK --interval=10s --timeout=2s --start-period=2s --retries=3 \
     CMD dig +short +time=1 +tries=1 @127.0.0.1 localhost A | grep -qx 127.0.0.1 || exit 1
 
 ENTRYPOINT ["/usr/local/lib/gns3/start-client.sh"]
-CMD ["/usr/sbin/dnsmasq", "--keep-in-foreground", "--conf-file=/etc/dnsmasq.d/lab-cache.conf"]
+CMD ["/bin/bash"]

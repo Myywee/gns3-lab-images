@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-ARG BASE_IMAGE=ghcr.io/myywee/ubuntu:slab
+ARG BASE_IMAGE=ghcr.io/myywee/ubuntu:basic
 FROM ${BASE_IMAGE}
 
 USER root

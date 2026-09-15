@@ -14,4 +14,6 @@ printf 'nameserver 127.0.0.1\noptions timeout:2 attempts:2\n' > "$resolver_file"
 cat "$resolver_file" > /etc/resolv.conf
 rm -f "$resolver_file"
 trap - EXIT HUP INT TERM
+
+dnsmasq --conf-file="$config_file"
 exec "$@"

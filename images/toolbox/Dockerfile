@@ -87,6 +87,7 @@ RUN set -eux; \
         tar \
         tcpdump \
         ucf \
+        vim \
         xdg-user-dirs; \
     update-ca-certificates; \
     rm -f /usr/sbin/policy-rc.d; \
