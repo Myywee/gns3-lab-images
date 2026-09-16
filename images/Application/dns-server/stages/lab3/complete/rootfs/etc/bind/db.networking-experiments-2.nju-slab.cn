@@ -1,0 +1,11 @@
+$TTL 300
+@       IN      SOA     ns.networking-experiments-2.nju-slab.cn. admin.networking-experiments-2.nju-slab.cn. (
+                        2026091001 ; Serial
+                        3600       ; Refresh
+                        900        ; Retry
+                        604800     ; Expire
+                        300 )      ; Negative Cache TTL
+
+@       IN      NS      ns.networking-experiments-2.nju-slab.cn.
+@       IN      A       10.10.20.20
+ns      IN      A       10.10.20.10

@@ -1,0 +1,14 @@
+zone "experiment.test" {
+    type master;
+    file "/etc/bind/db.experiment.test";
+};
+
+zone "networking-experiments.nju-slab.cn" {
+    type master;
+    file "/etc/bind/db.networking-experiments.nju-slab.cn";
+};
+
+zone "networking-experiments-2.nju-slab.cn" {
+    type master;
+    file "/etc/bind/db.networking-experiments-2.nju-slab.cn";
+};
